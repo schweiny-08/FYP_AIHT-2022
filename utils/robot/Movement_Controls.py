@@ -4,7 +4,7 @@ from time import sleep
 
 class Movement_Controls:
 
-    def __init__():
+    def __init__(self):
 
         motor1_in1 = 23
         motor1_in2 = 24
@@ -31,34 +31,34 @@ class Movement_Controls:
         GPIO.output(motor2_in2, GPIO.LOW)
         p2 = GPIO.PWM(motor2_en, 1000)
 
-    def forward():
+    def forward(self):
         print("forward")
         GPIO.output(motor1_in1, GPIO.HIGH)
         GPIO.output(motor2_in1, GPIO.HIGH)
         GPIO.output(motor1_in2, GPIO.LOW)
         GPIO.output(motor2_in2, GPIO.LOW)
 
-    def backward(): 
+    def backward(self): 
         print("backward")
         GPIO.output(motor1_in1, GPIO.LOW)
         GPIO.output(motor2_in1, GPIO.LOW)
         GPIO.output(motor1_in2, GPIO.HIGH)
         GPIO.output(motor2_in2, GPIO.HIGH)
 
-    def left():
+    def left(self):
         print("left")
         GPIO.output(motor1_in1, GPIO.HIGH)
         GPIO.output(motor2_in1, GPIO.LOW)
         GPIO.output(motor1_in2, GPIO.LOW)
         GPIO.output(motor2_in2, GPIO.HIGH)
     
-    def right():
+    def right(self):
         print("right")
         GPIO.output(motor1_in1, GPIO.LOW)
         GPIO.output(motor2_in1, GPIO.HIGH)
         GPIO.output(motor1_in2, GPIO.HIGH)
         GPIO.output(motor2_in2, GPIO.LOW)
 
-    def change_speed(speed):
+    def change_speed(self, speed):
         p1.ChangeDutyCycle(speed)
         p2.ChangeDutyCycle(speed)
