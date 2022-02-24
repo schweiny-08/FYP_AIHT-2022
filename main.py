@@ -1,4 +1,4 @@
-import Movement_Controls
+from Movement_Controls import Movement_Controls
 
 movement_controls = Movement_Controls()
 
