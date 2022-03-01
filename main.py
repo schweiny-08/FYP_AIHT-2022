@@ -1,6 +1,6 @@
 from utils.robot.Movement_Controls import Movement_Controls
 
-movement_controls = Movement_Controls()
+movement_controls = Movement_Controls
 
 speed = 0
 
@@ -16,11 +16,11 @@ while 1:
         movement_controls.left()
     elif x == 'd':
         movement_controls.right()
-    elif x == 'q':
+    elif x == 'e':
         speed += 5
         movement_controls.change_speed(speed)
         
-    elif x == 'e':
+    elif x == 'q':
         if speed > 0:
             speed -= 5
         print("Speed is" + speed)
