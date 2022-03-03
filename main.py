@@ -3,7 +3,7 @@ import RPi.GPIO as GPIO
 
 movement_controls = Movement_Controls()
 
-speed = 0
+speed = 40
 
 while 1:
     x = input()
@@ -24,7 +24,7 @@ while 1:
     elif x == 'q':
         if speed > 0:
             speed -= 5
-        print("Speed is" + speed)
+        print("Speed is" + speed.__str__())
     elif x == 'z':
         print("exit")
         GPIO.cleanup()
