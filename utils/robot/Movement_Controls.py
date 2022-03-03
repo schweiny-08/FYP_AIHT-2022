@@ -6,9 +6,9 @@ class Movement_Controls:
 
     def __init__(self):
 
-        self.motor1_in1 = 23
-        self.motor1_in2 = 24
-        self.motor1_en = 25
+        self.motor1_in1 = 26
+        self.motor1_in2 = 16
+        self.motor1_en = 13
         self.temp1 = 1
 
         self.motor2_in1 = 4
