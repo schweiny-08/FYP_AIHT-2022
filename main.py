@@ -1,4 +1,5 @@
 from utils.robot.Movement_Controls import Movement_Controls
+import RPi.GPIO as GPIO
 
 movement_controls = Movement_Controls()
 
@@ -29,5 +30,8 @@ while 1:
         GPIO.cleanup()
         print("GPIO Clean Up")
         break
+    elif x == 'r':
+        print("run")
+        movement_controls.run()
     else:
         print("BAD INPUT")

@@ -31,6 +31,10 @@ class Movement_Controls:
         GPIO.output(self.motor2_in2, GPIO.LOW)
         self.p2 = GPIO.PWM(self.motor2_en, 1000)
 
+    def run(self):
+        self.p1.start(40)
+        self.p2.start(40)
+
     def forward(self):
         print("forward")
         GPIO.output(self.motor1_in1, GPIO.HIGH)
