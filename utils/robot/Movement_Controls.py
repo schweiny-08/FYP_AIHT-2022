@@ -20,13 +20,15 @@ class Movement_Controls:
         GPIO.setup(self.motor1_in1, GPIO.OUT)
         GPIO.setup(self.motor1_in2, GPIO.OUT)
         GPIO.setup(self.motor1_en, GPIO.OUT)
-        GPIO.output(self.motor1_in1, GPIO.LOW)
-        GPIO.output(self.motor1_in2, GPIO.LOW)
-        self.p1 = GPIO.PWM(self.motor1_en, 1000)
-
         GPIO.setup(self.motor2_in1, GPIO.OUT)
         GPIO.setup(self.motor2_in2, GPIO.OUT)
         GPIO.setup(self.motor2_en, GPIO.OUT)
+
+
+        GPIO.output(self.motor1_in1, GPIO.LOW)
+        GPIO.output(self.motor1_in2, GPIO.LOW)
+        self.p1 = GPIO.PWM(self.motor1_en, 1000)
+       
         GPIO.output(self.motor2_in1, GPIO.LOW)
         GPIO.output(self.motor2_in2, GPIO.LOW)
         self.p2 = GPIO.PWM(self.motor2_en, 1000)
