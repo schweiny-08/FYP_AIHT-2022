@@ -1,6 +1,6 @@
 from utils.robot.Movement_Controls import Movement_Controls
 
-movement_controls = Movement_Controls
+movement_controls = Movement_Controls()
 
 speed = 0
 
