@@ -7,7 +7,7 @@ speed = 40
 
 while 1:
     x = input()
-    speed = 0
+    speed = movement_controls.get_speed()
 
     if x == 'w':
         movement_controls.forward()
@@ -18,13 +18,17 @@ while 1:
     elif x == 'd':
         movement_controls.right()
     elif x == 'e':
-        speed += 5
-        movement_controls.change_speed(speed)
+        if speed < 80:
+            speed += 5
+            movement_controls.change_speed(speed)
         
     elif x == 'q':
-        if speed > 0:
+        if speed > 10:
             speed -= 5
-        print("Speed is" + speed.__str__())
+            movement_controls.change_speed(speed)
+            print("Speed is " + speed.__str__())
+        else:
+            print("cannot go slower")
     elif x == 'z':
         print("exit")
         GPIO.cleanup()

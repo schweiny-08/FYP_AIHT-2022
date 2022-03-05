@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
 from time import sleep
 
+default_speed = 40
 
 class Movement_Controls:
 
@@ -15,6 +16,8 @@ class Movement_Controls:
         self.motor2_in2 = 17
         self.motor2_en = 18
         self.temp2 = 1
+        
+        self.speed = default_speed
 
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(self.motor1_in1, GPIO.OUT)
@@ -34,8 +37,8 @@ class Movement_Controls:
         self.p2 = GPIO.PWM(self.motor2_en, 1000)
 
     def run(self):
-        self.p1.start(40)
-        self.p2.start(40)
+        self.p1.start(self.speed)
+        self.p2.start(self.speed)
 
     def forward(self):
         print("forward")
@@ -43,6 +46,8 @@ class Movement_Controls:
         GPIO.output(self.motor2_in1, GPIO.HIGH)
         GPIO.output(self.motor1_in2, GPIO.LOW)
         GPIO.output(self.motor2_in2, GPIO.LOW)
+        self.p1.ChangeDutyCycle(default_speed)
+        self.p2.ChangeDutyCycle(default_speed)
 
     def backward(self): 
         print("backward")
@@ -50,6 +55,8 @@ class Movement_Controls:
         GPIO.output(self.motor2_in1, GPIO.LOW)
         GPIO.output(self.motor1_in2, GPIO.HIGH)
         GPIO.output(self.motor2_in2, GPIO.HIGH)
+        self.p1.ChangeDutyCycle(default_speed)
+        self.p2.ChangeDutyCycle(default_speed)
 
     def left(self):
         print("left")
@@ -57,6 +64,8 @@ class Movement_Controls:
         GPIO.output(self.motor2_in1, GPIO.LOW)
         GPIO.output(self.motor1_in2, GPIO.LOW)
         GPIO.output(self.motor2_in2, GPIO.HIGH)
+        self.p1.ChangeDutyCycle(default_speed)
+        self.p2.ChangeDutyCycle(default_speed)
     
     def right(self):
         print("right")
@@ -64,7 +73,13 @@ class Movement_Controls:
         GPIO.output(self.motor2_in1, GPIO.HIGH)
         GPIO.output(self.motor1_in2, GPIO.HIGH)
         GPIO.output(self.motor2_in2, GPIO.LOW)
+        self.p1.ChangeDutyCycle(default_speed)
+        self.p2.ChangeDutyCycle(defualt_speed)
+    
+    def get_speed(self):
+        return self.speed
 
     def change_speed(self, speed):
+        self.speed = speed
         self.p1.ChangeDutyCycle(speed)
         self.p2.ChangeDutyCycle(speed)
