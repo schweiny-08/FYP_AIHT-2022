@@ -1,7 +1,7 @@
 from utils.robot.Movement_Controls import Movement_Controls
 import RPi.GPIO as GPIO
 
-from camera_record import record_video
+from utils.robot.camera_record import record_video
 
 record_time = 20
 
