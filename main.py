@@ -7,7 +7,7 @@ record_time = 20
 
 from multiprocessing import Process
 
-cam_record = Process(target=record_video, args=(record_time))
+cam_record = Process(target=record_video, args=(record_time,))
 cam_record.start()
 cam_record.join()
 cam_record.close()

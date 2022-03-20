@@ -10,7 +10,7 @@ class VideoCaptureAsync:
         else:
             self.cap = cv2.VideoCapture(self.src, driver)
         
-        self.cap.set(cv2.CAP_PROP_FRAME_WDITH, width)
+        self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, width)
         self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, height)
         self.grabbed, self.frame = self.cap.read()
         self.started = False

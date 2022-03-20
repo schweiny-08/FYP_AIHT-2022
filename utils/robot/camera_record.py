@@ -1,5 +1,4 @@
 import cv2
-from video_capture import VideoCaptureAsync
 from utils.robot.video_capture import VideoCaptureAsync
 import time
 
@@ -27,7 +26,7 @@ def record_video(duration):
         
         # Shows every 5th frame to the display
         if frames == 0 or frame%5 == 0:
-            frame = cv2.flip(frame, 180)
+            frame = cv2.flip(new_frame, 180)
             cv2.imshow('frame', frame)
         
         if cv2.waitKey(1) & 0xFF == ord('q'):
