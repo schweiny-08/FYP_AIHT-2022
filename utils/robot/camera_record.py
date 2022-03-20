@@ -1,5 +1,6 @@
 import cv2
 from video_capture import VideoCaptureAsync
+from utils.robot.video_capture import VideoCaptureAsync
 import time
 
 vid_w = 1080
