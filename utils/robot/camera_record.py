@@ -8,7 +8,7 @@ vid_h = 720
 capture = VideoCaptureAsync(0, vid_w, vid_h)
 fourcc = cv2.VideoWriter_fourcc(*'DIVX')
 
-def record_video(duration):
+def record_video():
     capture.start()
     time_end = time.time() + duration
 
@@ -16,7 +16,7 @@ def record_video(duration):
     images = []
 
     # This loop only captures time for above duration
-    while time.time() <= time_end:
+    while True:
         ret, new_frame = capture.read()
         images.append(new_frame)
         
@@ -29,9 +29,10 @@ def record_video(duration):
             frame = cv2.flip(new_frame, 180)
             cv2.imshow('frame', frame)
         
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            break
+        # if cv2.waitKey(1) & 0xFF == ord('q'):
+        #     break
     
+def stop_video():
     capture.stop()
     cv2.destroyAllWindows()
 
