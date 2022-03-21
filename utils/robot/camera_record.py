@@ -10,7 +10,7 @@ fourcc = cv2.VideoWriter_fourcc(*'DIVX')
 
 def record_video():
     capture.start()
-    time_end = time.time() + duration
+    # time_end = time.time() + duration
 
     frames = 0
     images = []
