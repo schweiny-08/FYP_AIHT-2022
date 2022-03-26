@@ -2,21 +2,20 @@ from utils.robot.Movement_Controls import Movement_Controls
 import RPi.GPIO as GPIO
 import threading
 from utils.robot.camera_record import Camera_Record
-import cv2
 
 record_time = 20
 
 # from multiprocessing import Process
 
 movement_controls = Movement_Controls()
-camera_record = Camera_Record(cv2=cv2)
+camera_record = Camera_Record()
 
 speed = 40
 
-cam_thread = threading.Thread(target=camera_record.start_camera)
-cam_thread.start()
+camera_record.start_camera()
 
 while 1:
+
     x = input()
     speed = movement_controls.get_speed()
 
@@ -44,9 +43,8 @@ while 1:
         print("exit")
         GPIO.cleanup()
         print("GPIO Clean Up")
-        cam_thread._stop()
         camera_record.stop_camera()
-        # subprocess
+        print("Stopped camera")
         break
     elif x == 'r':
         print("run")

@@ -1,23 +1,28 @@
-# import cv2
+import cv2
+import threading
+
 
 class Camera_Record:
 
-    def __init__(self, cv2):
-        self.cv2 = cv2
+    def __init__(self):
+        self.cap = cv2.VideoCapture(0)
 
-        self.cap = self.cv2.VideoCapture(0)
+        self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
+        self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 
-        self.cap.set(self.cv2.CAP_PROP_FRAME_WIDTH, 640)
-
-        self.cap.set(self.cv2.CAP_PROP_FRAME_HEIGHT, 480)
-
-    def start_camera(self):
+    def start_camera_thread(self):
         while True:
             ret, frame = self.cap.read()
-            self.cv2.imshow('frame', frame)
+            cv2.imshow('frame', frame)
             # if cv2.waitKey(1) & 0xFF == ord('q'):
             #     break
 
+    def start_camera(self):
+        self.camera_thread = threading.Thread(target=start_camera_thread)
+        self.camera_thread.start()
+
+   
     def stop_camera(self):
+        # self.camera_thread.
         self.cap.release()
-        self.cv2.destroyAllWindows()
+        cv2.destroyAllWindows()
