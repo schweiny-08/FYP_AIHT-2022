@@ -2,13 +2,14 @@ from utils.robot.Movement_Controls import Movement_Controls
 import RPi.GPIO as GPIO
 import threading
 from utils.robot.camera_record import Camera_Record
+import cv2
 
 record_time = 20
 
 # from multiprocessing import Process
 
 movement_controls = Movement_Controls()
-camera_record = Camera_Record()
+camera_record = Camera_Record(cv2=cv2)
 
 speed = 40
 
