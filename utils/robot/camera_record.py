@@ -1,16 +1,21 @@
 import cv2
 
-cap = cv2.VideoCapture(0)
+class Camera_Record:
 
-cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
+    def __init__(self):
+        self.cap = cv2.VideoCapture(0)
 
-cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
+        self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
 
-while True:
-    ret, frame = cap.read()
-    cv2.imshow('frame', frame)
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
+        self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 
-cap.release()
-cv2.destroyAllWindows()
+    def start_camera(self):
+        while True:
+            ret, frame = cap.read()
+            cv2.imshow('frame', frame)
+            # if cv2.waitKey(1) & 0xFF == ord('q'):
+            #     break
+
+    def stop_camera(self):
+        self.cap.release()
+        cv2.destroyAllWindows()
