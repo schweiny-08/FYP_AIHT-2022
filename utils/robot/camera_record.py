@@ -11,7 +11,7 @@ class Camera_Record:
 
     def start_camera(self):
         while True:
-            ret, frame = cap.read()
+            ret, frame = self.cap.read()
             cv2.imshow('frame', frame)
             # if cv2.waitKey(1) & 0xFF == ord('q'):
             #     break
