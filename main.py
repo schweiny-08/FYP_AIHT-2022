@@ -12,7 +12,7 @@ camera_record = Camera_Record()
 
 speed = 40
 
-cam_thread = threading.Thread(target=camera_record.start_camera())
+cam_thread = threading.Thread(target=camera_record.start_camera)
 cam_thread.start()
 
 while 1:
