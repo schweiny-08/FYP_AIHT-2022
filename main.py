@@ -1,18 +1,14 @@
-from utils.robot.Movement_Controls import Movement_Controls
 import RPi.GPIO as GPIO
 from multiprocessing import Process
+
+from utils.robot.Movement_Controls import Movement_Controls
 from utils.robot.camera_record import Camera_Record
-
-record_time = 20
-
-# from multiprocessing import Process
 
 movement_controls = Movement_Controls()
 camera_record = Camera_Record()
 
 speed = 40
 
-#camera_record.start_camera()
 camera_process = Process(target=camera_record.start_camera_thread)
 camera_process.start()
 
