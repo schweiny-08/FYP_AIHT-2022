@@ -24,6 +24,6 @@ class Camera_Record:
                 break
             
     def stop_camera(self):
-        self.camera_thread.kill()
+        #self.camera_thread.kill()
         self.cap.release()
         cv2.destroyAllWindows()
