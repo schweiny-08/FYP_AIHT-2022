@@ -1,10 +1,11 @@
 import cv2
 import skimage
+from skimage.restoration import denoise_tv_chambolle
 
 class Camera_Record:
 
     def __init__(self):
-        self.cap = cv2.VideoCapture(0)
+        self.cap = cv2.VideoCapture(-1)
 
         self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
         self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
@@ -13,10 +14,9 @@ class Camera_Record:
         while True:
             ret, raw_img = self.cap.read()
             grayscale_img = skimage.color.rgb2gray(raw_img)
-            cv2.imshow('gray', gray)
-            # denoised_img = skimage.restoration.denoise_tv_chambolle(grayscale_img, weight=60)
-
-            cv2.imshow('frame', frame)
+            cv2.imshow('gray', grayscale_img)
+            #denoised_img = denoise_tv_chambolle(skimage.img_as_float(grayscale_img), weight=0.1)
+            
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
             
