@@ -74,7 +74,7 @@ class Movement_Controls:
         GPIO.output(self.motor1_in2, GPIO.HIGH)
         GPIO.output(self.motor2_in2, GPIO.LOW)
         self.p1.ChangeDutyCycle(default_speed)
-        self.p2.ChangeDutyCycle(defualt_speed)
+        self.p2.ChangeDutyCycle(default_speed)
     
     def get_speed(self):
         return self.speed
