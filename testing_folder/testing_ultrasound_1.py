@@ -27,32 +27,29 @@ try:
 		time.sleep(0.00001)
 		GPIO.output(pin_trigger_b, GPIO.LOW)
 
+		while GPIO.input(pin_echo_b)==0:
+			pulse_start_time_b = time.time()
+		while GPIO.input(pin_echo_b)==1:
+			pulse_end_time_b = time.time()
+
+		time.sleep(1)
+
 		GPIO.output(pin_trigger_r, GPIO.HIGH)
 		time.sleep(0.00001)
 		GPIO.output(pin_trigger_r, GPIO.LOW)
-
-
-#		while GPIO.input(pin_echo_b)==0:
-#			pulse_start_time_b = time.time()
-#		while GPIO.input(pin_echo_b)==1:
-#			pulse_end_time_b = time.time()
-
-#		time.sleep(1)
 
 		while GPIO.input(pin_echo_r)==0:
 			pulse_start_time_r = time.time()
 		while GPIO.input(pin_echo_r)==1:
 			pulse_end_time_r = time.time()
 
-
-#		pulse_duration_b = pulse_end_time_b - pulse_start_time_b
+		pulse_duration_b = pulse_end_time_b - pulse_start_time_b
 		pulse_duration_r = pulse_end_time_r - pulse_start_time_r
-#		distance = round(pulse_duration * 17150, 2)
 
-#		distance_b = round((pulse_duration_b*34300)/2, 2)
+		distance_b = round((pulse_duration_b*34300)/2, 2)
 		distance_r = round((pulse_duration_r*34300)/2, 2)
 
-#		print("Distance blue: ", distance_b, "cm")
+		print("Distance blue: ", distance_b, "cm")
 		print("Distance red: ", distance_r, "cm")
 
 
