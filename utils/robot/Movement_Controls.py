@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 from time import sleep
 
-default_speed = 40
+default_speed = 100
 
 class Movement_Controls:
 
@@ -40,8 +40,8 @@ class Movement_Controls:
         self.p1.start(self.speed)
         self.p2.start(self.speed)
 
-    def forward(self):
-        print("forward")
+    def left(self):
+        print("left")
         GPIO.output(self.motor1_in1, GPIO.HIGH)
         GPIO.output(self.motor2_in1, GPIO.HIGH)
         GPIO.output(self.motor1_in2, GPIO.LOW)
@@ -49,8 +49,8 @@ class Movement_Controls:
         self.p1.ChangeDutyCycle(default_speed)
         self.p2.ChangeDutyCycle(default_speed)
 
-    def backward(self): 
-        print("backward")
+    def right(self):
+        print("right")
         GPIO.output(self.motor1_in1, GPIO.LOW)
         GPIO.output(self.motor2_in1, GPIO.LOW)
         GPIO.output(self.motor1_in2, GPIO.HIGH)
@@ -58,17 +58,17 @@ class Movement_Controls:
         self.p1.ChangeDutyCycle(default_speed)
         self.p2.ChangeDutyCycle(default_speed)
 
-    def left(self):
-        print("left")
+    def forward(self):
+        print("forward")
         GPIO.output(self.motor1_in1, GPIO.HIGH)
         GPIO.output(self.motor2_in1, GPIO.LOW)
         GPIO.output(self.motor1_in2, GPIO.LOW)
         GPIO.output(self.motor2_in2, GPIO.HIGH)
         self.p1.ChangeDutyCycle(default_speed)
         self.p2.ChangeDutyCycle(default_speed)
-    
-    def right(self):
-        print("right")
+
+    def backward(self):
+        print("backward")
         GPIO.output(self.motor1_in1, GPIO.LOW)
         GPIO.output(self.motor2_in1, GPIO.HIGH)
         GPIO.output(self.motor1_in2, GPIO.HIGH)
