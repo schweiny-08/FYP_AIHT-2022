@@ -7,7 +7,6 @@ import csv
 x = 0
 
 addresses = ["C4:F1:B0:74:10:0B", "C8:B3:F7:1E:BB:D7", "F4:1C:2E:2A:C4:FF", "DE:0A:DA:75:DF:57"]
-#addresses = ["C8:B3:F7:1E:BB:D7", "F4:1C:2E:2A:C4:FF", "DE:0A:DA:75:DF:57"]
 
 raw_quad = {}
 treated_quad = {}

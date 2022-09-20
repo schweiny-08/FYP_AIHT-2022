@@ -19,7 +19,7 @@ while(True):
 	blur = cv2.bilateralFilter(img, 5, 30, 30)
 #	cv2.imshow('blur', blur)
 	edges = cv2.Canny(blur, 0, 100)
-#	cv2.imshow('edges', edges)
+	cv2.imshow('edges', edges)
 
 	img_h = img.shape[0] - 1
 	img_w = img.shape[1] - 1
@@ -38,7 +38,7 @@ while(True):
 	for x in range(len(EdgeArray)):
 		cv2.line(img, (x*StepSize, img_h), EdgeArray[x], (0, 255, 0), 1)
 
-#	cv2.imshow("rrr", img)
+	cv2.imshow("rrr", img)
 
 	chunks = getChunks(EdgeArray, int(len(EdgeArray)/3))
 
@@ -61,7 +61,7 @@ while(True):
 #		print(c)
 
 #		cv2.imshow('img', img)
-		cv2.imshow('Result_1', frame)
+		cv2.imshow('Result', frame)
 #		cv2.imshow('Edges', edges)
 	if cv2.waitKey(1) & 0xFF == ord('q'):
 		break

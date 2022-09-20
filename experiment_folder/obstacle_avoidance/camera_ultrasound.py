@@ -6,6 +6,8 @@ import time
 import sys
 from select import select
 
+sys.path.append('../..')
+
 from utils.robot.Movement_Controls import Movement_Controls
 from utils.robot.Camera_Controls import Camera_Controls
 from utils.robot.Ultrasound_Controls import Ultrasound_Controls

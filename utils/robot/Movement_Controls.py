@@ -30,11 +30,11 @@ class Movement_Controls:
 
         GPIO.output(self.motor1_in1, GPIO.LOW)
         GPIO.output(self.motor1_in2, GPIO.LOW)
-        self.p1 = GPIO.PWM(self.motor1_en, 1000)
-       
+        self.p1 = GPIO.PWM(self.motor1_en, 10)
+
         GPIO.output(self.motor2_in1, GPIO.LOW)
         GPIO.output(self.motor2_in2, GPIO.LOW)
-        self.p2 = GPIO.PWM(self.motor2_en, 1000)
+        self.p2 = GPIO.PWM(self.motor2_en, 10)
 
     def run(self):
         self.p1.start(self.speed)
